@@ -1,54 +1,37 @@
-from library import Library
-from member import MemberManager
-from issue import IssueManager
+import library as lib
+import member as mem
+import issue as iss
+lib_sys=lib.Library()
+mem_sys = mem.MemberManager()
+issue_sys=iss.IssueManager(lib_sys)
 
-
-def main():
-    library = Library()
-    members = MemberManager()
-    issues = IssueManager(library)
-
-    while True:
-        print("\n========== LIBRARY MANAGEMENT SYSTEM ==========")
-        print("1. Member Register")
-        print("2. Book Issue")
-        print("3. Book Return")
-        print("4. Add Book")
-        print("5. Remove Book")
-        print("6. Search Book")
-        print("7. Exit")
-
-        try:
-            choice = int(input("Enter the type: "))
-        except ValueError:
-            print("Please enter a valid number.")
-            continue
-
-        if choice == 1:
-            members.register_member()
-
-        elif choice == 2:
-            issues.issue_book(members)
-
-        elif choice == 3:
-            issues.return_book()
-
-        elif choice == 4:
-            library.add_book()
-
-        elif choice == 5:
-            library.remove_book()
-
-        elif choice == 6:
-            library.search_book()
-
-        elif choice == 7:
-            print("Thank you for using the Library Management System.")
-            break
-
-        else:
-            print("Invalid choice. Please select 1 to 7.")
-
-
-if __name__ == "__main__":
-    main()
+while True:
+    print("\n--- LIBRARY MENU ---") 
+    print("[1] Register New Candidate")
+    print("[2] Issue a Book")
+    print("[3] Return a Book")
+    print("[4] Add New Book")
+    print("[5] Remove a Book")
+    print("[6] Search for Book")
+    print("[7] Close Program")
+    
+    choice = input("\nselect the type b/w (1-7): ").strip()
+     if choice == "1":
+        mem_sys.register_member()
+    elif choice == "2":
+        issue_sys.issue_book(mem_sys)
+   
+     elif choice=="3":
+        issue_sys.return_book()
+    elif choice=="4":
+        lib_sys.add_book()
+    elif choice=="5":
+        lib_sys.remove_book()
+    elif choice == "6":
+        lib_sys.search_book()
+    
+     elif choice=="7":
+        print("have a nice day")
+        break
+    else:
+        print("Error")
