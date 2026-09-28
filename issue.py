@@ -1,15 +1,15 @@
 loans = []
 count = 1
 
-def issue_book(lib, bid, mid, mem_list, dt):
+def issue_book(bid, mid, dt):
     global count
     
-    bk = lib.get_book(bid)
+    bk = get_book(bid)
     if bk is None:
         print("Error: Book ID not found.")
         return
 
-    m = mem_list.get_member(mid)
+    m = find_by_id(mid)
     if m is None:
         print("Error: Member ID not found.")
         return
