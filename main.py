@@ -1,9 +1,9 @@
 import library as lib
 import member as mem
 import issue as iss
-lib_sys=lib.Library()
+lib_sys = lib.Library()
 mem_sys = mem.MemberManager()
-issue_sys=iss.IssueManager(lib_sys)
+issue_sys = iss.IssueManager(lib_sys)
 
 while True:
     print("\n--- LIBRARY MENU ---") 
@@ -21,16 +21,16 @@ while True:
     elif choice == "2":
         issue_sys.issue_book(mem_sys)
    
-     elif choice=="3":
+     elif choice == "3":
         issue_sys.return_book()
-    elif choice=="4":
+    elif choice == "4":
         lib_sys.add_book()
-    elif choice=="5":
+    elif choice == "5":
         lib_sys.remove_book()
     elif choice == "6":
         lib_sys.search_book()
     
-     elif choice=="7":
+     elif choice == "7":
         print("have a nice day")
         break
     else:
