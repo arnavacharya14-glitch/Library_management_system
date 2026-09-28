@@ -9,9 +9,9 @@ def add_new_user():
 
  
 
- valid=True
+ valid = True
  if len(phone) == 0:
-    valid=False
+    valid = False
  for character in phone:
     if character not in "0123456789":
         valid = False
@@ -23,11 +23,12 @@ def add_new_user():
  phone_num = int(phone)
  
  
- user_data = {}
+ user_data = {
  user_data["id"] = next_id
  user_data["name"] = name
  user_data["email"]=email
  user_data["phone"] = phone_num
+ }
 
  all_users.append(user_data)
  print("Assigned member ID:", next_id)
