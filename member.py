@@ -1,37 +1,52 @@
-class MemberManager:
-    def __init__(self):
-        self.members = []
-        self.next_member_id = 1
+all_users = []
+next_id = 1
 
-    def register_member(self):
-        name = input("Enter your name: ")
-        email = input("Enter E-mail ID: ")
+def add_new_user():
+ global next_id
+ name=input("Enter your name: ")
+ email = input("Enter E-mail ID: ")
+ phone = input("Enter phone no.: ")
 
-        try:
-            phone = int(input("Enter phone no.: "))
-        except ValueError:
-            print("Invalid phone number.")
-            return
+ 
 
-        member = {
-            "id": self.next_member_id,
-            "name": name,
-            "email": email,
-            "phone": phone
-        }
+ valid=True
+ if len(phone) == 0:
+    valid=False
+ for character in phone:
+    if character not in "0123456789":
+        valid = False
 
-        self.members.append(member)
-        print("Assigned member ID:", self.next_member_id)
-        self.next_member_id += 1
+ if not valid:
+    print("Invalid phone number.")
+    return 
 
-    def get_member(self, member_id):
-        for member in self.members:
-            if member["id"] == member_id:
-                return member
-        return None
+ phone_num = int(phone)
+ 
+ 
+ user_data = {}
+ user_data["id"] = next_id
+ user_data["name"] = name
+ user_data["email"]=email
+ user_data["phone"] = phone_num
 
-    def find_member_by_name(self, name):
-        for member in self.members:
-            if member["name"].lower() == name.lower():
-                return member
-        return None
+ all_users.append(user_data)
+ print("Assigned member ID:", next_id)
+ 
+ 
+ next_id = next_id + 1
+
+def find_by_id(search_id):
+ for index in range(len(all_users)):
+    current_person = all_users[index]
+    if current_person["id"] == search_id:
+        return current_person
+ return None
+
+
+def find_by_name(search_name):
+ for user in all_users:
+    
+    if user["name"].lower() == search_name.lower():
+        return user
+        
+ return None
