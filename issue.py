@@ -1,8 +1,8 @@
 import library as lib
 import member as mem
 
-loans = []
-count = 1
+loans=[]
+count=1
 
 def issue_book_ui():
     global count
