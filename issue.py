@@ -9,14 +9,14 @@ def issue_book_ui():
     try:
         bid = int(input("Enter Book ID to issue: "))
         mid = int(input("Enter Member ID: "))
-    except ValueError:
+    except:
         print("Error: IDs must be numeric integers.")
         return
         
     dt = input("Enter Issue Date (DD-MM-YYYY): ")
-    
     bk = lib.get_book(bid)
-    if bk is None:
+    
+    if not bk:
         print("Error: Book ID not found.")
         return
 
@@ -25,9 +25,9 @@ def issue_book_ui():
         print("Error: Member ID not found.")
         return
 
-    for x in loans:
-        if x["book_id"] == bid:
-            print(f"Error: '{bk['name']}' is already loaned out.")
+    for record in loans:
+        if record["book_id"] == bid:
+            print("Error: '" + str(bk['name']) + "' is already loaned out.")
             return
 
     res = {
