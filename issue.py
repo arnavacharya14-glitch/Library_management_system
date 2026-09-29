@@ -4,15 +4,23 @@ import member as mem
 loans = []
 count = 1
 
-def issue_book(bid, mid, dt):
+def issue_book_ui():
     global count
+    try:
+        bid = int(input("Enter Book ID to issue: "))
+        mid = int(input("Enter Member ID: "))
+    except ValueError:
+        print("Error: IDs must be numeric integers.")
+        return
+        
+    dt = input("Enter Issue Date (DD-MM-YYYY): ")
     
-    bk = get_book(bid)
+    bk = lib.get_book(bid)
     if bk is None:
         print("Error: Book ID not found.")
         return
 
-    m = find_by_id(mid)
+    m = mem.find_by_id(mid)
     if m is None:
         print("Error: Member ID not found.")
         return
@@ -36,7 +44,13 @@ def issue_book(bid, mid, dt):
     print(f"Success: Book issued! Assigned transaction ID: {count}")
     count += 1
 
-def return_book(r_id):
+def return_book_ui():
+    try:
+        r_id = int(input("Enter Issue ID to return: "))
+    except ValueError:
+        print("Error: Issue ID must be numeric.")
+        return
+
     for x in loans:
         if x["issue_id"] == r_id:
             loans.remove(x)
