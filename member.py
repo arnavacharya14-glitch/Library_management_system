@@ -3,11 +3,9 @@ next_id = 1
 
 def add_new_user():
  global next_id
- name=input("Enter your name: ")
+ name = input("Enter your name: ")
  email = input("Enter E-mail ID: ")
  phone = input("Enter phone no.: ")
-
- 
 
  valid = True
  if len(phone) == 0:
@@ -22,17 +20,14 @@ def add_new_user():
 
  phone_num = int(phone)
  
- 
  user_data = {}
  user_data["id"] = next_id
  user_data["name"] = name
- user_data["email"]=email
+ user_data["email"] = email
  user_data["phone"] = phone_num
 
  all_users.append(user_data)
  print("Assigned member ID:", next_id)
- 
- 
  next_id = next_id + 1
 
 def find_by_id(search_id):
@@ -41,11 +36,8 @@ def find_by_id(search_id):
         return current_person
  return None
 
-
 def find_by_name(search_name):
  for user in all_users:
-    
     if user["name"].lower() == search_name.lower():
         return user
-        
  return None
