@@ -1,5 +1,5 @@
-books = []
-next_book_id = 1
+books=[]
+next_book_id=1
 
 def add_book():
     global next_book_id
@@ -20,7 +20,7 @@ def remove_book():
     if not user_input.isdigit():
         print("Please enter a valid Book ID.")
         return
-    book_id = int(user_input)
+    book_id=int(user_input)
     
     for item in books:
         if item["id"] == book_id:
