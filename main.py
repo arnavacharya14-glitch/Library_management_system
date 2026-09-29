@@ -28,8 +28,8 @@ if __name__ == '__main__':
             lib.remove_book()
         elif choice == "6":
             lib.search_book()
-        elif choice == "7":
-            print("have a nice day")
+        elif choice=="7":
+            print("exit")
             break
         else:
             print("Error")
