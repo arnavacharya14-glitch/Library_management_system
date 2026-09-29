@@ -14,18 +14,18 @@ while True:
     
     choice = input("\nselect the type b/w (1-7): ").strip()
     if choice == "1":
-        mem_sys.register_member()
+        mem.add_new_user()
     elif choice == "2":
         iss.issue_book_ui()
    
     elif choice == "3":
         iss.return_book_ui()
     elif choice == "4":
-        lib_sys.add_book()
+        lib.add_book()
     elif choice == "5":
-        lib_sys.remove_book()
+        lib.remove_book()
     elif choice == "6":
-        lib_sys.search_book()
+        lib.search_book()
     
     elif choice == "7":
         print("have a nice day")
