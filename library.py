@@ -1,8 +1,7 @@
 
 books = []
 next_book_id = 1
-loans = []
-count = 1
+
 
 def add_book():
     global next_book_id
@@ -19,7 +18,7 @@ def add_book():
 
 def remove_book():
     try:
-        book_id = int(input("Book ID: "))
+        book_id = int(input("Book ID to remove: "))
     except ValueError:
         print("Please enter a valid Book ID.")
         return
