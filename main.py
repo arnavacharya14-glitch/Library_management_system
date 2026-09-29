@@ -1,60 +1,35 @@
 import library as lib
 import member as mem
+import issue as iss
 
-loans = []
-count = 1
-
-def issue_book_ui():
-    global count
-    try:
-        bid = int(input("Enter Book ID to issue: "))
-        mid = int(input("Enter Member ID: "))
-    except:
-        print("Error: IDs must be numeric integers.")
-        return
+if __name__ == '__main__':
+    while True:
+        print("\n--- LIBRARY MENU ---") 
+        print(" Register New Candidate")
+        print(" Issue a Book")
+        print(" Return a Book")
+        print(" Add New Book")
+        print(" Remove a Book")
+        print(" Search for Book")
+        print(" Close Program")
         
-    dt = input("Enter Issue Date (DD-MM-YYYY): ")
-    bk = lib.get_book(bid)
-    
-    if not bk:
-        print("Error: Book ID not found.")
-        return
-
-    m = mem.find_by_id(mid)
-    if m is None:
-        print("Error: Member ID not found.")
-        return
-
-    for record in loans:
-        if record["book_id"] == bid:
-            print("Error: '" + str(bk['name']) + "' is already loaned out.")
-            return
-
-    res = {
-        "issue_id": count,
-        "book_id": bid,
-        "book_name": bk["name"],
-        "author": bk["author"],
-        "member_id": mid,
-        "member_name": m["name"],
-        "issue_date": dt
-    }
-    
-    loans.append(res)
-    print(f"Success: Book issued! Assigned transaction ID: {count}")
-    count += 1
-
-def return_book_ui():
-    try:
-        r_id = int(input("Enter Issue ID to return: "))
-    except ValueError:
-        print("Error: Issue ID must be numeric.")
-        return
-
-    for x in loans:
-        if x["issue_id"] == r_id:
-            loans.remove(x)
-            print("Success: Book returned safely.")
-            return
-            
-    print("Error: No active loan found with that Issue ID.")
+        choice = input("\nselect the type b/w (1-7): ")
+        choice = choice.strip()
+        
+        if choice == "1":
+            mem.add_new_user()
+        elif choice == "2":
+            iss.issue_book_ui()
+        elif choice == "3":
+            iss.return_book_ui()
+        elif choice == "4":
+            lib.add_book()
+        elif choice == "5":
+            lib.remove_book()
+        elif choice == "6":
+            lib.search_book()
+        elif choice == "7":
+            print("have a nice day")
+            break
+        else:
+            print("Error")
