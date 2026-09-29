@@ -1,4 +1,4 @@
-all_users = []
+all_users=[]
 next_id = 1
 
 def add_new_user():
