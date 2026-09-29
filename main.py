@@ -16,10 +16,10 @@ while True:
     if choice == "1":
         mem_sys.register_member()
     elif choice == "2":
-        issue_sys.issue_book(mem_sys)
+        iss.issue_book_ui()
    
     elif choice == "3":
-        issue_sys.return_book()
+        iss.return_book_ui()
     elif choice == "4":
         lib_sys.add_book()
     elif choice == "5":
