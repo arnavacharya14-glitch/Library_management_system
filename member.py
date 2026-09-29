@@ -36,7 +36,7 @@ def add_new_user():
  next_id = next_id + 1
 
 def find_by_id(search_id):
- for current_person in all users:
+ for current_person in all_users:
      if current_person["id"] == search_id:
         return current_person
  return None
