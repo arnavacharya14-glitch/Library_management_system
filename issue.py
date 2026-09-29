@@ -1,3 +1,6 @@
+import library as lib
+import member as mem
+
 loans = []
 count = 1
 
